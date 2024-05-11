@@ -10,7 +10,7 @@ h3{
 button{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
-  background-color: ;
+  background-color:darkgrey;
 }
 
 .bigpadding{
@@ -132,3 +132,12 @@ button{
   text-shadow: 0 0 0 black;
 }
 
+.runawayButton {
+  position: absolute;
+  color: #4fa3c4;
+  background-color: darkgrey;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

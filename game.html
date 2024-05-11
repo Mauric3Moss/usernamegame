@@ -5,7 +5,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script.js"></script>
 </head>
-<body onload="game1()">
+<body onload="game1(); game2()">
   <center>
     <div class="lvl1">
       <p>Please enter the exact hex code for the color that is shown below:</p>
@@ -15,7 +15,7 @@
       <button onclick="checkColor()">Submit</button>
     </div>
     <div id="game2" style="display: none;">
-      
+      <button id="runawayButton" class="runawayButton">Click Me</button>
     </div>
   </center>
 </body>
