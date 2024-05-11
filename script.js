@@ -32,7 +32,7 @@ function checkColor() {
 }
 
 function startPlinko() {
-  const wordInput = "username";
+  const wordInput = document.getElementById("wordInput").value;
   const letters = wordInput.split('');
   const plinkoBoard = document.getElementById("plinkoBoard");
 
@@ -65,21 +65,38 @@ function startPlinko() {
 
 function handleLetterBounce(event) {
   const letterElement = event.target;
-  const pegElements = document.elementsFromPoint(event.clientX, event.clientY);
-  const pegElement = pegElements.find(element => element.classList.contains('peg'));
+  const pegElements = document.querySelectorAll(".peg");
 
-  if (pegElement) {
+  const letterRect = letterElement.getBoundingClientRect();
+ 
+  pegElements.forEach(pegElement => {
     const pegRect = pegElement.getBoundingClientRect();
-    const letterRect = letterElement.getBoundingClientRect();
 
-    if (letterRect.right > pegRect.left && letterRect.left < pegRect.right) {
-      if (letterRect.top < pegRect.bottom) {
-        letterElement.style.left = `${parseInt(letterElement.style.left) - 5}%`;
-      } else {
-        letterElement.style.left = `${parseInt(letterElement.style.left) + 5}%`;
+    if (
+      letterRect.right > pegRect.left &&
+      letterRect.left < pegRect.right &&
+      letterRect.bottom > pegRect.top &&
+      letterRect.top < pegRect.bottom
+    ) {
+      // Horizontal collision
+      if (letterRect.right > pegRect.left && letterRect.left < pegRect.right) {
+        if (letterRect.top < pegRect.bottom) {
+          letterElement.style.top = `${parseInt(letterElement.style.top) + 5}px`;
+        } else {
+          letterElement.style.top = `${parseInt(letterElement.style.top) - 5}px`;
+        }
+      }
+     
+      // Vertical collision
+      if (letterRect.bottom > pegRect.top && letterRect.top < pegRect.bottom) {
+        if (letterRect.left < pegRect.right) {
+          letterElement.style.left = `${parseInt(letterElement.style.left) + 5}px`;
+        } else {
+          letterElement.style.left = `${parseInt(letterElement.style.left) - 5}px`;
+        }
       }
     }
-  }
+  });
 }
 
 function checkScrambledOutput() {
@@ -91,3 +108,4 @@ function checkScrambledOutput() {
     alert("Incorrect. Please try again.");
   }
 }
+
