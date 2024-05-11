@@ -14,6 +14,13 @@ function game1() {
   document.querySelector(".col").style.backgroundColor = correctColor;
 }
 
+function showColor() {
+  const inputColor = document.getElementById("colorInput").value;
+  document.querySelector(".preview").style.backgroundColor = inputColor;
+}
+
+document.getElementById("colorInput").addEventListener("input", showColor);
+
 function checkColor() {
   const userInput = document.getElementById("colorInput").value.toUpperCase();
   if (userInput === correctColor.toUpperCase()) {
