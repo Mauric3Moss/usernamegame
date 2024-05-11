@@ -10,9 +10,7 @@ var game4Ans = "0b";
 let correctColor;
 
 function game1() {
-  //correctColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-  //document.querySelector(".col").style.backgroundColor = correctColor;
-  correctColor = "#000000"
+  correctColor = "#000000";
 }
 
 function showColor() {
@@ -37,17 +35,28 @@ function startPlinko() {
   const wordInput = document.getElementById("wordInput").value.toLowerCase();
   if (wordInput === "username") {
     const letters = wordInput.split('');
-    const letterElements = document.querySelectorAll('.letter');
+    const plinkoBoard = document.getElementById("plinkoBoard");
 
     letters.forEach((letter, index) => {
-      letterElements[index].textContent = letter;
-      letterElements[index].style.setProperty('--left', Math.floor(Math.random() * 90) + 5);
-      letterElements[index].style.animationDelay = `${index * 0.2}s`;
+      const letterElement = document.createElement("div");
+      letterElement.textContent = letter;
+      letterElement.classList.add("letter");
+      letterElement.style.setProperty('--left', Math.floor(Math.random() * 90) + 5);
+      letterElement.style.animationDelay = `${index * 0.2}s`;
+      plinkoBoard.appendChild(letterElement);
+    });
+
+    const pegElements = document.querySelectorAll(".peg");
+    pegElements.forEach((peg, index) => {
+      peg.style.setProperty('--left', Math.floor(Math.random() * 90) + 5);
+      peg.style.setProperty('--top', Math.floor(Math.random() * 80) + 10);
     });
 
     setTimeout(() => {
-      const scrambledWord = letters.sort(() => Math.random() - 0.5).join('');
-      document.getElementById("scrambledOutput").value = scrambledWord;
+      const letterElements = document.querySelectorAll('.letter');
+      const scrambledLetters = Array.from(letterElements).map(letter => letter.textContent);
+      const scrambledWord = scrambledLetters.join('');
+      document.getElementById("scrambledOutput").textContent = scrambledWord;
     }, 5000);
   } else {
     alert("Please enter the word 'username'.");

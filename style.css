@@ -131,7 +131,7 @@ button{
   color: transparent;
   text-shadow: 0 0 0 black;
 }
-/* ... (previous CSS) ... */
+
 
 #plinkoBoard {
   width: 300px;
@@ -141,25 +141,31 @@ button{
   overflow: hidden;
 }
 
-.letter {
-  width: 20px;
-  height: 20px;
-  background-color: #4fa3c4;
+.peg {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
   border-radius: 50%;
   position: absolute;
+  left: calc(var(--left) * 1%);
+  top: calc(var(--top) * 1%);
+}
+
+.letter {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: calc(var(--left) * 1%);
   animation: plinko 5s linear forwards;
 }
 
 @keyframes plinko {
   0% {
     top: 0;
-    left: calc(var(--left) * 1%);
   }
   100% {
     top: 380px;
-    left: calc(var(--left) * 1%);
   }
 }
 
@@ -168,4 +174,3 @@ button{
   font-weight: bold;
   margin-top: 20px;
 }
-
