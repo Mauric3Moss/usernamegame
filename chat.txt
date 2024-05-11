@@ -1,3 +1,5 @@
 Kevin, make js work
 
 i did :D
+
+kevin make runaway button (game2) work
