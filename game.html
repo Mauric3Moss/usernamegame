@@ -7,9 +7,10 @@
 <body onload="game1()">
   <center>
     <div class="lvl1">
-      <p>What color is shown below?</p>
+      <p>Please enter the exact hex code for the color that is shown below:</p>
       <div class="col"><span><span><br><br><br><br></span></span></div><br><br><br>
-      <input type="color" value="#000000" id="colorPicked" oninput="checkColor()">
+      <input type="text" id="colorInput" placeholder="Enter hex code">
+      <button onclick="checkColor()">Submit</button>
     </div>
   </center>
 </body>
