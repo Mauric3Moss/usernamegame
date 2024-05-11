@@ -1,7 +1,3 @@
-function start() {
-  window.location.href = "game.html";
-}
-
 var game1Ans = "0b";
 var game2Ans = "0b";
 var game3Ans = "0b";
@@ -30,7 +26,11 @@ function checkColor() {
     alert("Incorrect. Please try again.");
   }
 }
-
+function me(){
+  
+}
+/*
+// Commented out Plinko game code
 function getRandom() {
   return Math.random() < 0.5 ? -1 : 1;
 }
@@ -96,3 +96,4 @@ function handleLetterBounce(event) {
     }
   }
 }
+*/
