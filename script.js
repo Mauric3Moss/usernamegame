@@ -35,77 +35,51 @@ function startPlinko() {
   const wordInput = document.getElementById("wordInput").value;
   const letters = wordInput.split('');
   const plinkoBoard = document.getElementById("plinkoBoard");
+  const ball = document.createElement("div");
+  ball.classList.add("ball");
+  plinkoBoard.innerHTML = '';
 
-  letters.forEach((letter, index) => {
-    const letterElement = document.createElement("div");
-    letterElement.textContent = letter;
-    letterElement.classList.add("letter");
-    letterElement.style.setProperty('--left', (index * 10) + 5);
-    letterElement.style.animationDelay = `${index * 0.2}s`;
-    plinkoBoard.appendChild(letterElement);
+  letters.forEach(letter => {
+    const peg = document.createElement("div");
+    peg.classList.add("peg");
+    plinkoBoard.appendChild(peg);
   });
 
-  const pegElements = document.querySelectorAll(".peg");
-  pegElements.forEach((peg, index) => {
-    peg.style.setProperty('--left', (index * 15) + 5);
-    peg.style.setProperty('--top', Math.floor(Math.random() * 80) + 10);
+  plinkoBoard.appendChild(ball);
+
+  const letterElements = document.querySelectorAll('.peg');
+  const ballRect = ball.getBoundingClientRect();
+
+  letterElements.forEach((letter, index) => {
+    letter.style.animationDelay = `${index * 0.1}s`;
   });
 
-  const letterElements = document.querySelectorAll('.letter');
-  letterElements.forEach(letter => {
-    letter.addEventListener('animationiteration', handleLetterBounce);
+  ball.addEventListener('transitionend', function() {
+    const pegRects = document.querySelectorAll('.peg');
+    let scrambledWord = '';
+    pegRects.forEach((pegRect, index) => {
+      const ballX = ballRect.left + ballRect.width / 2;
+      const pegX = pegRect.offsetLeft + pegRect.offsetWidth / 2;
+      if (Math.abs(ballX - pegX) < 10) {
+        scrambledWord += letters[index];
+      }
+    });
+
+    document.getElementById("scrambledOutput").textContent = scrambledWord;
+
+    if (scrambledWord === "USERNAME") {
+      alert("Correct! The word matches.");
+    } else {
+      alert("Incorrect. Please try again.");
+    }
   });
 
   setTimeout(() => {
-    const scrambledLetters = Array.from(letterElements).map(letter => letter.textContent);
-    const scrambledWord = scrambledLetters.join('');
-    document.getElementById("scrambledOutput").textContent = scrambledWord;
-  }, 5000);
+    const pegs = document.querySelectorAll('.peg');
+    const randomIndex = Math.floor(Math.random() * pegs.length);
+    const targetPeg = pegs[randomIndex];
+    const targetX = targetPeg.offsetLeft + targetPeg.offsetWidth / 2;
+    ball.style.left = `${targetX - ballRect.width / 2}px`;
+    ball.style.bottom = `${targetPeg.offsetTop - ballRect.height}px`;
+  }, 500);
 }
-
-function handleLetterBounce(event) {
-  const letterElement = event.target;
-  const pegElements = document.querySelectorAll(".peg");
-
-  const letterRect = letterElement.getBoundingClientRect();
- 
-  pegElements.forEach(pegElement => {
-    const pegRect = pegElement.getBoundingClientRect();
-
-    if (
-      letterRect.right > pegRect.left &&
-      letterRect.left < pegRect.right &&
-      letterRect.bottom > pegRect.top &&
-      letterRect.top < pegRect.bottom
-    ) {
-      // Horizontal collision
-      if (letterRect.right > pegRect.left && letterRect.left < pegRect.right) {
-        if (letterRect.top < pegRect.bottom) {
-          letterElement.style.top = `${parseInt(letterElement.style.top) + 5}px`;
-        } else {
-          letterElement.style.top = `${parseInt(letterElement.style.top) - 5}px`;
-        }
-      }
-     
-      // Vertical collision
-      if (letterRect.bottom > pegRect.top && letterRect.top < pegRect.bottom) {
-        if (letterRect.left < pegRect.right) {
-          letterElement.style.left = `${parseInt(letterElement.style.left) + 5}px`;
-        } else {
-          letterElement.style.left = `${parseInt(letterElement.style.left) - 5}px`;
-        }
-      }
-    }
-  });
-}
-
-function checkScrambledOutput() {
-  const scrambledOutput = document.getElementById("scrambledOutput").textContent;
-  if (scrambledOutput.toLowerCase() === "username") {
-    alert("Correct!");
-    // Add additional logic or proceed to the next level
-  } else {
-    alert("Incorrect. Please try again.");
-  }
-}
-
