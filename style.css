@@ -132,25 +132,47 @@ button{
   text-shadow: 0 0 0 black;
 }
 
-#fan {
-  width: 50px;
-  height: 50px;
-  background-image: url('fan.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  pointer-events: none;
-  animation: fanAnimation 0.5s linear infinite;
-  display: none;
+/* Commented out Plinko game styles
+#plinkoBoard {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes fanAnimation {
+.peg {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(var(--left) * 1%);
+  top: calc(var(--top) * 1%);
+}
+
+.letter {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: calc(var(--left) * 1%);
+  animation: plinko 5s linear forwards;
+}
+
+@keyframes plinko {
   0% {
-    transform: rotate(0deg);
+    top: 0;
   }
   100% {
-    transform: rotate(360deg);
+    top: 380px;
   }
 }
 
-
+#scrambledOutput {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+}
+*/

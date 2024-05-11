@@ -26,23 +26,74 @@ function checkColor() {
     alert("Incorrect. Please try again.");
   }
 }
-let fanElement;
-let clickMeBtn;
-
-function me() {
-  fanElement = document.getElementById("fan");
-  clickMeBtn = document.getElementById("clickMeBtn");
-  fanElement.style.display = "block";
-  document.addEventListener("mousemove", handleMouseMove);
+function me(){
+  
+}
+/*
+// Commented out Plinko game code
+function getRandom() {
+  return Math.random() < 0.5 ? -1 : 1;
 }
 
-function handleMouseMove(event) {
-  const btnRect = clickMeBtn.getBoundingClientRect();
-  const fanX = btnRect.left + btnRect.width / 2;
-  const fanY = btnRect.top + btnRect.height / 2;
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
+function startPlinko() {
+  const wordInput = document.getElementById("wordInput").value.toLowerCase();
+  if (wordInput === "username") {
+    const letters = wordInput.split('');
+    const plinkoBoard = document.getElementById("plinkoBoard");
 
-  const angle = Math.atan2(mouseY - fanY, mouseX - fanX) * (180 / Math.PI) + 90;
-  fanElement.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+    letters.forEach((letter, index) => {
+      const letterElement = document.createElement("div");
+      letterElement.textContent = letter;
+      letterElement.classList.add("letter");
+      letterElement.style.setProperty('--left', (index * 10) + 5);
+      letterElement.style.animationDelay = `${Math.random() * 5}s`;
+      plinkoBoard.appendChild(letterElement);
+    });
+
+    const pegElements = document.querySelectorAll(".peg");
+    pegElements.forEach((peg, index) => {
+      peg.style.setProperty('--left', (index * 15) + 5);
+      peg.style.setProperty('--top', Math.floor(Math.random() * 80) + 10);
+    });
+
+    const letterElements = document.querySelectorAll('.letter');
+    letterElements.forEach(letter => {
+      letter.addEventListener('animationiteration', handleLetterBounce);
+    });
+
+    setTimeout(() => {
+      const scrambledLetters = Array.from(letterElements).map(letter => letter.textContent);
+      const scrambledWord = scrambledLetters.join('');
+      document.getElementById("scrambledOutput").textContent = scrambledWord;
+
+      if (scrambledWord.toLowerCase() === wordInput) {
+        alert("Correct! The word matches.");
+        // Add logic to proceed to game 3
+      } else {
+        alert("Incorrect. Please try again.");
+      }
+    }, 3000);
+  } else {
+    alert("Please enter the word 'username'.");
+  }
 }
+
+function handleLetterBounce(event) {
+  const letterElement = event.target;
+  const pegElements = document.elementsFromPoint(event.clientX, event.clientY);
+  const pegElement = pegElements.find(element => element.classList.contains('peg'));
+
+  if (pegElement) {
+    const pegRect = pegElement.getBoundingClientRect();
+    const letterRect = letterElement.getBoundingClientRect();
+
+    if (letterRect.right > pegRect.left && letterRect.left < pegRect.right) {
+      if (letterRect.top < pegRect.bottom) {
+        letterElement.style.left = `${parseInt(letterElement.style.left) + getRandom() * 5}%`;
+      } else {
+        letterElement.style.left = `${parseInt(letterElement.style.left) + getRandom() * 5}%`;
+      }
+    }
+  }
+}
+*/
