@@ -4,8 +4,8 @@ var game3Ans = "0b";
 var game4Ans = "0b";
 
 
-function start(){
-  window.location.href("https://usernamegame4.glitch.me/game.html")
+function start() {
+  window.location.href = "game.html";
 }
 
 let correctColor;

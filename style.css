@@ -11,6 +11,13 @@ button{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
   background-color:darkgrey;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: border-radius 0.5s;
+}
+
+button:hover {
+  border-radius: 50px;
 }
 
 .bigpadding{
