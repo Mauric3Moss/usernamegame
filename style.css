@@ -131,7 +131,7 @@ button{
   color: transparent;
   text-shadow: 0 0 0 black;
 }
-
+/* ... (previous CSS) ... */
 
 #plinkoBoard {
   width: 300px;
@@ -173,4 +173,5 @@ button{
   font-size: 24px;
   font-weight: bold;
   margin-top: 20px;
+  display: inline-block;
 }
