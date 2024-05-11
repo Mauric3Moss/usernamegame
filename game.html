@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Username Game</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </head>
 <body onload="game1()">
   <center>
@@ -18,11 +17,11 @@
     <div id="game2" style="display: none;">
       <p>Enter the word "username":</p>
       <input type="text" id="wordInput" placeholder="Enter word">
-      <button onclick="startPlinko()">Start Plinko</button>
+      <button onclick="startPlinko()">Submit</button>
       <div id="plinkoBoard"></div>
-      <p id="scrambledOutput"></p>
+      <p id="scrambledOutput">Username</p>
+      <button onclick="checkScrambledOutput()">Submit</button>
     </div>
   </center>
-  <script src="script.js"></script>
 </body>
 </html>

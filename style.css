@@ -1,118 +1,115 @@
-body {
+body{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
-  background-color: #636769;
+  Background-color:#636769;
 }
-
-h3 {
+h3{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
 }
-
-button {
+button{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
   background-color: ;
 }
 
-.bigpadding {
+.bigpadding{
   padding: 250px;
 }
-
 .wt-btn_sign {
-  font-size: 23px;
+    font-size: 23px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  letter-spacing: -.21px;
-  white-space: nowrap;
-  -webkit-transition: color .3s;
-  -o-transition: color .3s;
-  -moz-transition: color .3s;
-  transition: color .3s;
-  line-height: 20px;
-  color: #4fa3c4;
-  background: #2d2e2d;
-  border: none;
-  height: 45px;
-  padding: 0 5px;
-  -webkit-border-radius: 22px;
-  -moz-border-radius: 22px;
-  border-radius: 22px;
+    font-weight: 400;
+    letter-spacing: -.21px;
+    white-space: nowrap;
+    -webkit-transition: color .3s;
+    -o-transition: color .3s;
+    -moz-transition: color .3s;
+    transition: color .3s;
+    line-height: 20px;  
+    color: #4fa3c4;
+    background: #2d2e2d;
+    border: none;
+    height: 45px;
+    padding: 0 5px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
 }
 
 .wt-btn_sign:hover {
-  color: white;
-  background: #000791;
-}
+    color: white;
+    background: #000791;
+    }
 
 .wt-btn_sign-bound {
-  display: block;
-  overflow: hidden;
+    display: block;
+    overflow: hidden;
 }
 
 .wt-btn_sign-bound span {
-  position: relative;
-  display: inline-block;
-  padding: 0 22px;
-  -webkit-animation: wt-btn_sign-marquee 2s linear infinite;
-  -moz-animation: wt-btn_sign-marquee 2s linear infinite;
-  -o-animation: wt-btn_sign-marquee 2s linear infinite;
-  animation: wt-btn_sign-marquee 2s linear infinite;
+    position: relative;
+    display: inline-block;
+  padding:0 22px;
+        -webkit-animation: wt-btn_sign-marquee 2s linear infinite;
+        -moz-animation: wt-btn_sign-marquee 2s linear infinite;
+        -o-animation: wt-btn_sign-marquee 2s linear infinite;
+        animation: wt-btn_sign-marquee 2s linear infinite;
 }
 
 .wt-btn_sign-bound span:after {
-  content: attr(data-text);
-  position: absolute;
-  left: 100%;
-  padding: 0 23px;
-}
+        content:attr(data-text);
+        position: absolute;
+        left: 100%;
+        padding: 0 23px;
+    }
 
 @-webkit-keyframes wt-btn_sign-marquee {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+    0% {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
 
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
+    100% {
+        -webkit-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0)
+    }
 }
 
 @-moz-keyframes wt-btn_sign-marquee {
-  0% {
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+    0% {
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
 
-  100% {
-    -moz-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
+    100% {
+        -moz-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0)
+    }
 }
 
 @-o-keyframes wt-btn_sign-marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
+    0% {
+        transform: translate3d(0,0,0)
+    }
 
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
+    100% {
+        transform: translate3d(-100%,0,0)
+    }
 }
 
 @keyframes wt-btn_sign-marquee {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+    0% {
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
 
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    -moz-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
+    100% {
+        -webkit-transform: translate3d(-100%,0,0);
+        -moz-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0)
+    }
 }
 
 .col {
@@ -121,7 +118,7 @@ button {
   border: 2px solid black;
 }
 
-.preview {
+.preview{
   width: 50px;
   height: 20px;
   border: 2px solid black;
@@ -136,25 +133,44 @@ button {
 }
 
 #plinkoBoard {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
 }
 
 .peg {
-  width: 20px;
-  height: 20px;
-  background-color: black;
+  width: 10px;
+  height: 10px;
+  background-color: #000;
   border-radius: 50%;
-  margin: 5px;
+  position: absolute;
+  left: calc(var(--left) * 1%);
+  top: calc(var(--top) * 1%);
 }
 
-.ball {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-  position: relative;
-  bottom: 0;
-  transition: bottom 0.5s;
+.letter {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: calc(var(--left) * 1%);
+  animation: plinko 5s linear forwards;
+}
+
+@keyframes plinko {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 380px;
+  }
+}
+
+#scrambledOutput {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
 }
