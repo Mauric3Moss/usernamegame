@@ -14,9 +14,22 @@
       <button onclick="checkColor()">Submit</button>
     </div>
     <div id="game2" style="display: none;">
-      <p>Enter the hidden text:</p>
-      <input type="text" id="hiddenInput" placeholder="Enter text">
-      <button onclick="checkHiddenInput()">Submit</button>
+      <p>Enter the word "username":</p>
+      <input type="text" id="wordInput" placeholder="Enter word">
+      <button onclick="startPlinko()">Submit</button>
+      <div id="plinkoBoard">
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+        <div class="letter"></div>
+      </div>
+      <p id="scrambledOutput"></p>
     </div>
   </center>
 </body>

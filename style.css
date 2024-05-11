@@ -131,3 +131,41 @@ button{
   color: transparent;
   text-shadow: 0 0 0 black;
 }
+/* ... (previous CSS) ... */
+
+#plinkoBoard {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+}
+
+.letter {
+  width: 20px;
+  height: 20px;
+  background-color: #4fa3c4;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: plinko 5s linear forwards;
+}
+
+@keyframes plinko {
+  0% {
+    top: 0;
+    left: calc(var(--left) * 1%);
+  }
+  100% {
+    top: 380px;
+    left: calc(var(--left) * 1%);
+  }
+}
+
+#scrambledOutput {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
