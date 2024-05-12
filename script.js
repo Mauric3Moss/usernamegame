@@ -12,6 +12,7 @@ let correctColor;
 
 function game1() {
   correctColor = "#000000";
+  
 }
 
 function showColor() {
