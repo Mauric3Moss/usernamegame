@@ -80,6 +80,9 @@
 <body onload="game2()">
   <div id="game2">
     <center>
+      <div class="top">
+        <h3>Click the <h3 onclick="next();">Button</h3><h3> to Continue</h3></h3>
+      </div><br>
     <div id="centerDiv"></div>
     <button id="runawayButton" class="runawayButton" onclick="ping();">Click Me</button>
     </center>
@@ -144,7 +147,10 @@
     }
 
     function ping() {
-      alert("got me");
+      alert("Incorrect. Please click the 'button' to procede");
+    }
+    function next(){
+      window.location.href = "game3.html"
     }
   </script>
 </body>
