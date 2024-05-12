@@ -2,33 +2,161 @@
 <html lang="en">
 <head>
   <style>
-  #gameBoard {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  width: 500px;
-  margin: 0 auto;
-}
+    #gameBoard {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 10px;
+      width: 500px;
+      margin: 0 auto;
+    }
 
-.square {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  cursor: pointer;
-}
+    .square {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid lightgrey;
+      transition: background-color 0.5s;
+    }
+
+    body {
+      font-family: "Source Code Pro", monospace;
+      color: #4fa3c4;
+      background-color: #636769;
+    }
+
+    h3 {
+      font-family: "Source Code Pro", monospace;
+      color: #4fa3c4;
+    }
+
+    #startButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4fa3c4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #startButton:hover {
+      background-color: #3e8ab8;
+    }
   </style>
-  <script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simon Says Game</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Game 3</title>
 </head>
 <body>
-  <h1>Simon Says Game</h1>
+  <h1>Win:</h1>
   <div id="gameBoard"></div>
   <button id="startButton">Start Game</button>
   <p id="roundInfo"></p>
   <p id="playerTurn"></p>
   <script src="script.js"></script>
 </body>
+<script>
+  const gameBoard = document.getElementById('gameBoard');
+  const startButton = document.getElementById('startButton');
+  const roundInfo = document.getElementById('roundInfo');
+  const playerTurn = document.getElementById('playerTurn');
+
+  let sequence = [];
+  let playerSequence = [];
+  let round = 1;
+  let isPlayerTurn = false;
+
+  function generateRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function createSquares() {
+    for (let i = 0; i < 20; i++) {
+      const square = document.createElement('div');
+      square.classList.add('square');
+      square.style.backgroundColor = generateRandomColor();
+      square.addEventListener('click', handleSquareClick);
+      gameBoard.appendChild(square);
+    }
+  }
+
+  function handleSquareClick() {
+    if (isPlayerTurn) {
+      const index = Array.from(gameBoard.children).indexOf(this);
+      playerSequence.push(index);
+      flashSquare(this, playerSequence[playerSequence.length - 1] === sequence[playerSequence.length - 1] ? 'white' : 'red');
+      checkSequence();
+    }
+  }
+
+  function flashSquare(square, color) {
+    const originalColor = square.style.backgroundColor;
+    square.style.backgroundColor = color;
+    setTimeout(() => {
+      square.style.backgroundColor = originalColor;
+    }, 500);
+  }
+
+  function checkSequence() {
+    const currentIndex = playerSequence.length - 1;
+    if (playerSequence[currentIndex] !== sequence[currentIndex]) {
+      resetGame();
+      alert('Game Over!');
+    } else if (playerSequence.length === sequence.length) {
+      isPlayerTurn = false;
+      playerSequence = [];
+      if (round === 7) {
+        alert('Congratulations! You won!');
+        window.location.href = "game4.html"
+      } else {
+        round++;
+        startRound();
+      }
+    }
+  }
+
+  function startRound() {
+    roundInfo.textContent = `Round ${round}`;
+    const randomSquares = Array.from(gameBoard.children).sort(() => Math.random() - 0.5);
+    sequence = randomSquares.slice(0, round).map(square => Array.from(gameBoard.children).indexOf(square));
+    showSequence();
+  }
+
+  function showSequence() {
+    let i = 0;
+    const interval = setInterval(() => {
+      const square = gameBoard.children[sequence[i]];
+      flashSquare(square, 'white');
+      i++;
+      if (i === sequence.length) {
+        clearInterval(interval);
+        isPlayerTurn = true;
+        playerTurn.textContent = 'Your turn!';
+      }
+    }, 1000);
+  }
+
+  function resetGame() {
+    sequence = [];
+    playerSequence = [];
+    round = 1;
+    isPlayerTurn = false;
+    roundInfo.textContent = '';
+    playerTurn.textContent = '';
+  }
+
+  createSquares();
+
+  startButton.addEventListener('click', () => {
+    resetGame();
+    startRound();
+  });
+</script>
 </html>
