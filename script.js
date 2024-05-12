@@ -10,7 +10,7 @@ function start() {
 
 //  
 
-//  
+//  mogchat2  :DDDD
 
 let correctColor;
 
