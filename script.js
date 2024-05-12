@@ -8,9 +8,9 @@ function start() {
   window.location.href = "game1.html";
 }
 
-//  still there?
+//  
 
-//  hi 
+//  mogchat.glitch.me
 
 let correctColor;
 
