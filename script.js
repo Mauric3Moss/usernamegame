@@ -15,7 +15,23 @@ function start() {
 let correctColor;
 
 function game1() {
-  correctColor = "#000000";
+  correctColor = "#";
+  // Function to generate a random hexadecimal color code
+function getRandomHexColor() {
+  const letters = '0123456789ABCDEF';
+  for (let i = 0; i < 6; i++) {
+    correctColor += letters[Math.floor(Math.random() * 16)];
+  }
+  return correctColor;
+}
+
+
+const chosenColor = getRandomHexColor();
+
+const divElement = document.getElementById('color');
+
+
+divElement.style.backgroundColor = chosenColor;
   
 }
 
