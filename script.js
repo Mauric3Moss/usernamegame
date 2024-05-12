@@ -5,8 +5,11 @@ var game4Ans = "0b";
 
 
 function start() {
-  window.location.href = "game.html";
+  window.location.href = "game1.html";
 }
+
+//  how does you pull then? conformity? fu
+//  no im just cool like that
 
 let correctColor;
 
@@ -28,7 +31,7 @@ function checkColor() {
     game1Ans = "1b";
     alert("Correct! You may proceed.");
     document.getElementById("game2").style.display = "block";
-    game2();
+    window.location.href = "game2.html";
   } else {
     alert("Incorrect. Please try again.");
   }
