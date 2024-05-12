@@ -10,7 +10,7 @@ function start() {
 
 //  
 
-//  mogchat1 now
+//  
 
 let correctColor;
 
