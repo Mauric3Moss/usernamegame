@@ -50,7 +50,7 @@
   <title>Game 3</title>
 </head>
 <body>
-  <h1>Win:</h1>
+  <h1>Win a game of Simon Says:</h1>
   <div id="gameBoard"></div>
   <button id="startButton">Start Game</button>
   <p id="roundInfo"></p>
@@ -107,13 +107,12 @@
   function checkSequence() {
     const currentIndex = playerSequence.length - 1;
     if (playerSequence[currentIndex] !== sequence[currentIndex]) {
+      alert("Game over... try again");
       resetGame();
-      alert('Game Over!');
     } else if (playerSequence.length === sequence.length) {
       isPlayerTurn = false;
       playerSequence = [];
       if (round === 7) {
-        alert('Congratulations! You won!');
         window.location.href = "game4.html"
       } else {
         round++;
