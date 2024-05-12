@@ -47,7 +47,6 @@ function checkColor() {
   if (userInput === correctColor.toUpperCase()) {
     game1Ans = "1b";
     alert("Correct! You may proceed.");
-    document.getElementById("game2").style.display = "block";
     window.location.href = "game2.html";
   } else {
     alert("Incorrect. Please try again.");
