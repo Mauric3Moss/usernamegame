@@ -8,8 +8,8 @@ function start() {
   window.location.href = "game1.html";
 }
 
-//  how does you pull then? conformity? fu
-//  no im just cool like that
+//  
+//  well at least i dont think they hate me
 
 let correctColor;
 
