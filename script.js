@@ -10,7 +10,7 @@ function start() {
 
 //  
 
-//  Kevin I thought of more book chars. get on mog if you can. if i'm not on glitch, i wont be on mog.
+//  
 
 let correctColor;
 
