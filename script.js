@@ -8,9 +8,9 @@ function start() {
   window.location.href = "game1.html";
 }
 
-//  so kevin, fmk your lilly, morey lilly, jade
+//  still there?
 
-//  yes
+//  
 
 let correctColor;
 
