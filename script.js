@@ -10,7 +10,7 @@ function start() {
 
 //  still there?
 
-//  
+//  hi 
 
 let correctColor;
 
