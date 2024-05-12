@@ -7,6 +7,20 @@ h3{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
 }
+
+.runawaybutton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 4rem;
+  width: 10rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 5px black;
+  background-color: white;
+}
 button{
   font-family: "Source Code Pro", monospace;
   color: #4fa3c4;
@@ -144,12 +158,4 @@ placeholder{
   text-shadow: 0 0 0 black;
 }
 
-.runawayButton {
-  position: absolute;
-  color: #4fa3c4;
-  background-color: darkgrey;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+

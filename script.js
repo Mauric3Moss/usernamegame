@@ -28,6 +28,7 @@ function checkColor() {
     game1Ans = "1b";
     alert("Correct! You may proceed.");
     document.getElementById("game2").style.display = "block";
+    game2();
   } else {
     alert("Incorrect. Please try again.");
   }
