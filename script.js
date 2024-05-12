@@ -10,7 +10,7 @@ function start() {
 
 //  
 
-//  mogchat.glitch.me
+//  
 
 let correctColor;
 
