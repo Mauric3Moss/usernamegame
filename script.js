@@ -8,8 +8,9 @@ function start() {
   window.location.href = "game1.html";
 }
 
-//  
-//  well at least i dont think they hate me
+//  so kevin, fmk your lilly, morey lilly, jade
+
+//  yes
 
 let correctColor;
 
