@@ -109,10 +109,11 @@
     if (playerSequence[currentIndex] !== sequence[currentIndex]) {
       alert("Game over... try again");
       resetGame();
+      window.location.href = "game1.html";
     } else if (playerSequence.length === sequence.length) {
       isPlayerTurn = false;
       playerSequence = [];
-      if (round === 7) {
+      if (round === 5) {
         window.location.href = "game4.html"
       } else {
         round++;
