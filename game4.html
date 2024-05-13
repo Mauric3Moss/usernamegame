@@ -1,2 +1,37 @@
 <p>next game here lol</p>
 <!--Mine Captcha, point this object in the right direction captcha, but its a featureless sphere, and then captcha with none of the images showing the object-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minesweeper Captcha</title>
+        <link rel=icon href=assets/logo.jpg>
+        <link rel=stylesheet href=style.css>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Minesweeper-based spam detection">
+
+        <meta property="og:image" content="https://knosmos.github.io/mine-captcha/assets/banner.png">
+        <meta property="twitter:image" content="https://knosmos.github.io/mine-captcha/assets/banner.png">
+        <meta property="twitter:card" content="summary_large_image">
+    </head>
+    <body>
+        <div id=captcha-wrapper>
+            <div id=captcha>
+                <div id=captcha-header>
+                    <h3>Select all four squares with</h3>
+                    <h2>mines</h2>
+                </div>
+                <div id=tile-grid>
+                </div>
+                <hr>
+                <div id= captcha-footer>
+                    <button id= "new-puzzle" onclick="make_minefield()">NEW</button>
+                    <button id = "submit" onclick="verification_handler()">VERIFY</button>
+                </div>
+            </div>
+            <p>made by <a href="https://github.com/knosmos" target="_blank">knosmos</a> | inspired by <a href="https://xkcd.com/2496/" target = "_blank">xkcd</a> | <a href="https://github.com/knosmos/mine-captcha" target = "_blank">Source code</a></p>
+        </div>
+        <script src = "minesweeper.js"></script>
+    </body>
+</html>
