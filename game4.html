@@ -76,25 +76,24 @@ h3{
     text-align: right;
 }
 
-/* IMAGES AND BUTTONS */
-
 .img {
     width: 60px;
     height: 60px;
     cursor: pointer;
     transition: 0.2s box-shadow;
     position: relative;
-    padding-top: 0; /* Changed from 100% */
-    box-sizing: border-box; /* Added */
-    margin: 2.5px; /* Added */
+    box-sizing: border-box;
+    margin: 2.5px;
+    display: flex; /* Added */
+    justify-content: center; /* Added */
+    align-items: center; /* Added */
 }
 
-.img img {
-    position: absolute;
-    width: 100%;
-    height: 100%; /* Added */
-    top: 0;
+.img .innerTile {
+    max-width: 100%; /* Added */
+    max-height: 100%; /* Added */
 }
+
 
 
 
@@ -146,14 +145,14 @@ h3{
 }
 
 .number {
-    width: 100%;
-    height: 100%;
+    width: auto; /* Changed from 100% */
+    height: auto; /* Changed from 100% */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    background-color: #ccc; /* Added grey background */
+    background-color: #ccc;
 }
 
 .number-1 {
