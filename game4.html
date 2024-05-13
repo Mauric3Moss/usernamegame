@@ -76,7 +76,8 @@ body{
 /* IMAGES AND BUTTONS */
 
 .img{
-    width:100%;
+    width:10px;
+    height: 100px;
     cursor:pointer;
     transition: 0.2s box-shadow;
     position:relative;
@@ -129,6 +130,22 @@ body{
 }
 #new-puzzle:hover{
     background-color: rgb(199, 199, 199);
+}
+.empty {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}
+
+.number {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
 }
 
 /* TEXT */
@@ -252,7 +269,7 @@ function render_minefield(minefield) {
             } else {
                 tileContent = `<div class="number">${num}</div>`;
             }
-            tile_grid.innerHTML += `<div class="img" onmousedown="select(${j}, ${i}, this)"><center>${tileContent}</div>`;
+            tile_grid.innerHTML += `<div class="img" onmousedown="select(${j}, ${i}, this)">${tileContent}</div>`;
         }
     }
 }
