@@ -233,20 +233,26 @@ function generate_minefield(){
 }
 
 // Render the minefield
-function render_minefield(minefield){
+function render_minefield(minefield) {
     let tile_grid = document.getElementById("tile-grid");
     tile_grid.innerHTML = "";
-    for (let i=0; i<height; i++){
-        for (let j=0; j<width; j++){
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
             let num = minefield[i][j];
-            if (num == 9){
+            if (num == 9) {
                 num = 0;
             }
-            if (Math.random() > display_chance){
+            if (Math.random() > display_chance) {
                 num = 0;
             }
-            let image_num = Math.floor(Math.random()*2);
-            tile_grid.innerHTML += `<div class=img onmousedown="select(${j}, ${i}, this)"><img src=img/${num}/${image_num}.jpg></div>`;<!--Change to numbered div-->
+            let image_num = Math.floor(Math.random() * 2);
+            let tileContent;
+            if (num === 0) {
+                tileContent = `<div class="empty"></div>`;
+            } else {
+                tileContent = `<div class="number">${num}</div>`;
+            }
+            tile_grid.innerHTML += `<div class="img" onmousedown="select(${j}, ${i}, this)"><center>${tileContent}</div>`;
         }
     }
 }
