@@ -107,7 +107,7 @@
   function checkSequence() {
     const currentIndex = playerSequence.length - 1;
     if (playerSequence[currentIndex] !== sequence[currentIndex]) {
-      alert("Game over... try again");
+      alert("Game over... Restart from the begining");
       resetGame();
       window.location.href = "game1.html";
     } else if (playerSequence.length === sequence.length) {
