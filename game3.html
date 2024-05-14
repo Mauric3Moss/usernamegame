@@ -107,13 +107,12 @@
   function checkSequence() {
     const currentIndex = playerSequence.length - 1;
     if (playerSequence[currentIndex] !== sequence[currentIndex]) {
-      alert("Game over... Restart from the begining");
+      alert("Game over... try again");
       resetGame();
-      window.location.href = "game1.html";
     } else if (playerSequence.length === sequence.length) {
       isPlayerTurn = false;
       playerSequence = [];
-      if (round === 5) {
+      if (round === 7) {
         window.location.href = "game4.html"
       } else {
         round++;
