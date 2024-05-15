@@ -22,15 +22,34 @@
             font-weight: bold;
             display: none;
         }
+        #password-display {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+      body{
+  font-family: "Source Code Pro", monospace;
+  color: #4fa3c4;
+  Background-color:#636769;
+}
+h3{
+  font-family: "Source Code Pro", monospace;
+  color: #4fa3c4;
+  }
+  form{
+    border-color: #636769;
+  }
+
     </style>
 </head>
 <body>
     <h1>Password Confirmation</h1>
-    <label for="password">Enter Password:</label>
-    <input type="text" id="password" placeholder="Enter password" disabled>
+    <label for="password">Enter the Password Below:</label>
+    <div id="password-display" contenteditable="false" style="border-color: #636769;"></div>
     <br>
     <br>
-    <label for="confirm-password">Confirm Password:</label>
+    <label for="confirm-password">Password:</label>
     <input type="password" id="confirm-password" placeholder="Confirm password">
     <br>
     <button onclick="confirmPassword()">Submit</button>
@@ -39,7 +58,7 @@
 
     <script>
         function confirmPassword() {
-            const password = document.getElementById("password").value;
+            const password = document.getElementById("password-display").textContent;
             const confirmPassword = document.getElementById("confirm-password").value;
 
             if (password !== confirmPassword) {
@@ -52,14 +71,13 @@
             }
         }
 
-       // Generate a random 14-character string
-        const characters ="αβψδεφγηιξκλμνοπ;ρστθωςχυζΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩΣΧΥΖABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        // Generate a random 14-character string
+        const characters ="αβψδεφγηιξκλμνοπ;ρστθωςχυζΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩΣΧΥΖABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
         let randomString = "";
         for (let i = 0; i < 14; i++) {
             randomString += characters.charAt(Math.floor(Math.random() * characters.length));
         }
-        document.getElementById("password").value = randomString;
-        document.getElementById("password").disabled = true;
+        document.getElementById("password-display").textContent = randomString;
     </script>
 </body>
 </html>
