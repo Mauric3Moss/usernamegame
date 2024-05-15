@@ -14,9 +14,8 @@
     <script>
         function confirmPassword() {
             const enteredPassword = document.getElementById("password").value;
-            const secretPassword = proces.env.SECRET;
 
-            if (enteredPassword !== secretPassword) {
+            if (enteredPassword !== process.env.SECRET) {
                 window.location.href = "game1.html";
             } else {;
                 // Redirect to game7.html if the password is correct
