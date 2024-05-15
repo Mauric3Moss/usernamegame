@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sphere Rotation Captcha</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .sphere {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+      border-radius: 50%;
+      animation: rotate 2s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sphere"></div>
+  </div>
+
+  <script>
+    const sphere = document.querySelector('.sphere');
+    let rotationDirection = '';
+    let userInput = '';
+
+    function generateRotationDirection() {
+      const directions = ['clockwise', 'counterclockwise'];
+      rotationDirection = directions[Math.floor(Math.random() * directions.length)];
+      alert(`Rotate the sphere ${rotationDirection}`);
+    }
+
+    function handleRotation(event) {
+      if (event.key === 'ArrowRight') {
+        userInput = 'clockwise';
+      } else if (event.key === 'ArrowLeft') {
+        userInput = 'counterclockwise';
+      } else {
+        return;
+      }
+
+      if (userInput === rotationDirection) {
+        alert('Correct!');
+        generateRotationDirection();
+      } else {
+        alert('Incorrect!');
+        generateRotationDirection();
+      }
+    }
+
+    generateRotationDirection();
+    document.addEventListener('keydown', handleRotation);
+  </script>
+</body>
+</html>
