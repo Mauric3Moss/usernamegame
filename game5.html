@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        input[type="password"] {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        #error-message {
+            color: red;
+            font-weight: bold;
+            display: none;
+        }
+        #success-message {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Confirmation</h1>
+    <label for="password">Enter Password:</label>
+    <input type="text" id="password" placeholder="Enter password">
+    <br>
+    <br>
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" placeholder="Confirm password">
+    <br>
+    <button onclick="confirmPassword()">Submit</button>
+    <p id="error-message">Passwords do not match. Please try again.</p>
+    <p id="success-message">Passwords match!</p>
+
+    <script>
+        function confirmPassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            if (password !== confirmPassword) {
+                document.getElementById("error-message").style.display = "block";
+                document.getElementById("success-message").style.display = "none";
+                document.getElementById("password").value = "";
+                document.getElementById("confirm-password").value = "";
+            } else {
+                document.getElementById("error-message").style.display = "none";
+                document.getElementById("success-message").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
