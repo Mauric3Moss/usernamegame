@@ -49,7 +49,7 @@ h3{
     <div id="password-display" contenteditable="false" style="border-color: #636769;"></div>
     <br>
     <br>
-    <label for="confirm-password">Password   |:</label>
+    <label for="confirm-password">Password:</label>
     <input type="password" id="confirm-password" placeholder="Confirm password">
     <br>
     <button onclick="confirmPassword()">Submit</button>
@@ -72,7 +72,7 @@ h3{
         }
 
         // Generate a random 14-character string
-        const characters ="αβψδεφγηιξκλμνοπ;ρστθωςχυζΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩΣΧΥΖABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        const characters ="αβψδεφγηιξκλμνοπ;ρστθωςχυζΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩΣΧΥΖABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΘ123456789!@#$%^&*()_+~`|}{[]:;?><,./-=©℗ㅤ™";
         let randomString = "";
         for (let i = 0; i < 14; i++) {
             randomString += characters.charAt(Math.floor(Math.random() * characters.length));
