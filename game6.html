@@ -1,83 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Password Confirmation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-        }
-        input[type="password"] {
-            padding: 5px;
-            margin-bottom: 10px;
-        }
-        #error-message {
-            color: red;
-            font-weight: bold;
-            display: none;
-        }
-        #success-message {
-            color: green;
-            font-weight: bold;
-            display: none;
-        }
-        #password-display {
-            border: 1px solid #ccc;
-            padding: 5px;
-            margin-bottom: 10px;
-            user-select: none;
-        }
-      body{
-  font-family: "Source Code Pro", monospace;
-  color: #4fa3c4;
-  Background-color:#636769;
-}
-h3{
-  font-family: "Source Code Pro", monospace;
-  color: #4fa3c4;
-  }
-  form{
-    border-color: #636769;
-  }
-
-    </style>
+    <title>Game 6</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Password Confirmation</h1>
-    <label for="password">Enter the Password Below:</label>
-    <div id="password-display" contenteditable="false" style="border-color: #636769;"></div>
-    <br>
-    <br>
-    <label for="confirm-password">Password:</label>
-    <input type="password" id="confirm-password" placeholder="Confirm password">
+    <label for="password">Enter the Secret Password:</label>
+    <input type="text" id="password" placeholder="Enter password">
     <br>
     <button onclick="confirmPassword()">Submit</button>
-    <p id="error-message">Passwords do not match. Please try again.</p>
-    <p id="success-message">Passwords match!</p>
 
     <script>
         function confirmPassword() {
-            const password = document.getElementById("password-display").textContent;
-            const confirmPassword = document.getElementById("confirm-password").value;
+            const enteredPassword = document.getElementById("password").value;
+            const secretPassword = process.env.SECRET;
 
-            if (password !== confirmPassword) {
-                document.getElementById("error-message").style.display = "block";
-                document.getElementById("success-message").style.display = "none";
-                document.getElementById("confirm-password").value = "";
-            } else {
-                document.getElementById("error-message").style.display = "none";
-                document.getElementById("success-message").style.display = "block";
+            if (enteredPassword !== secretPassword) {
+                window.location.href = "game1.html";
+            } else {;
+                // Redirect to game7.html if the password is correct
+                window.location.href = "game7.html";
             }
         }
-
-        // Generate a random 14-character string
-        const characters ="αβψδεφγηιξκλμνοπ;ρστθωςχυζΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩΣΧΥΖABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΘ123456789!@#$%^&*()_+~`|}{[]:;?><,./-=©℗ㅤ™";
-        let randomString = "";
-        for (let i = 0; i < 14; i++) {
-            randomString += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        document.getElementById("password-display").textContent = randomString;
     </script>
 </body>
 </html>
